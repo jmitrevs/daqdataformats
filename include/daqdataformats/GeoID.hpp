@@ -162,8 +162,8 @@ GeoID::GeoID(GeoID::SystemType const& type, uint16_t const& region, uint32_t con
 bool
 GeoID::operator<(const GeoID& other) const noexcept
 {
-  return std::tuple(system_type, region_id, element_id) <
-         std::tuple(other.system_type, other.region_id, other.element_id);
+  return std::tuple<GeoID::SystemType, uint16_t, uint16_t>(system_type, region_id, element_id) <
+         std::tuple<GeoID::SystemType, uint16_t, uint16_t>(other.system_type, other.region_id, other.element_id);
 }
 
 std::string
